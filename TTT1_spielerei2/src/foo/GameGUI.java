@@ -12,9 +12,9 @@ public class GameGUI extends JFrame implements IView {
     public GameGUI(JComponent componentGame, JComponent componentStats) {
         this.componentGame = componentGame;
         this.componentStats = componentStats;
-        setLayout(null);
-        add(componentGame, 1);
-        add(componentStats, -1);
+        setLayout(new BorderLayout());
+        add(componentGame, BorderLayout.CENTER);
+        add(componentStats, BorderLayout.BEFORE_FIRST_LINE);
         pack();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
