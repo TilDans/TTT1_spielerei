@@ -25,6 +25,7 @@ public class MatchController {
                 try {
                     String situation = model.toServerString();
                     Point move = currentPlayer.getMove(situation);
+                    System.out.println(move);
                     EFieldState nextState = even ? EFieldState.CROSS : EFieldState.CIRCLE;
                     model.setFieldState(move.x, move.y, nextState);
                     isWon(currentPlayer);
@@ -53,8 +54,11 @@ public class MatchController {
 //        System.out.println(situation.charAt(8) + " " + situation.charAt(5) + " " + situation.charAt(2));
         boolean straightLines = false;
         for (int i = 0; i < 3; i++) {
-            straightLines = situation.charAt(i) != '_' && situation.charAt(i) == situation.charAt(i + 4) && situation.charAt(i) == situation.charAt(i + 8);
+            if (situation.charAt(i) != '_' && situation.charAt(i) == situation.charAt(i + 4) && situation.charAt(i) == situation.charAt(i + 8)) {
+                straightLines = true;
+            }
         }
+        System.out.println(straightLines);
         if (situation.contains("xxx") | situation.contains("ooo") | diagonalLtoRDown | diagonalLtoRUp | straightLines) {
             model.setWon();
         }
