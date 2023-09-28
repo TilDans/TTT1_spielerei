@@ -58,7 +58,6 @@ public class MatchController {
                 straightLines = true;
             }
         }
-        System.out.println(straightLines);
         if (situation.contains("xxx") | situation.contains("ooo") | diagonalLtoRDown | diagonalLtoRUp | straightLines) {
             model.setWon();
         }
